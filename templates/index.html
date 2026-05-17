@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Downloader - YouTube, Instagram, Facebook</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="/static/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h2><i class="fas fa-download me-2"></i>Universal Video Downloader</h2>
+                        <p class="mb-0">Download videos from YouTube, Instagram, Facebook</p>
+                    </div>
+                    <div class="card-body">
+                        <!-- URL Input -->
+                        <div class="mb-4">
+                            <label for="url" class="form-label fw-bold">Video URL</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-link"></i></span>
+                                <input type="url" class="form-control" id="url" 
+                                       placeholder="https://www.youtube.com/watch?v=... or Instagram or Facebook URL">
+                            </div>
+                            <div class="form-text">Supports YouTube, Instagram, and Facebook videos</div>
+                        </div>
+
+                        <!-- Options Panel -->
+                        <div id="optionsPanel" style="display: none;">
+                            <!-- Video Info -->
+                            <div class="alert alert-info mb-3" id="videoInfo">
+                                <div class="d-flex align-items-center">
+                                    <img id="thumbnail" src="" alt="Thumbnail" class="me-3 rounded" style="width: 80px; height: 60px; object-fit: cover;">
+                                    <div>
+                                        <strong id="videoTitle">Loading...</strong><br>
+                                        <small id="videoDetails"></small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Download Type -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Download Type</label>
+                                <div class="btn-group w-100" role="group">
+                                    <input type="radio" class="btn-check" name="downloadType" id="mp4" value="mp4" autocomplete="off" checked>
+                                    <label class="btn btn-outline-primary" for="mp4">
+                                        <i class="fas fa-video me-1"></i> MP4 Video
+                                    </label>
+                                    <input type="radio" class="btn-check" name="downloadType" id="mp3" value="mp3" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="mp3">
+                                        <i class="fas fa-music me-1"></i> MP3 Audio
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Quality Selection -->
+                            <div class="mb-3" id="qualityGroup">
+                                <label class="form-label fw-bold">Quality</label>
+                                <select class="form-select" id="quality">
+                                    <option value="320p">320p (Low)</option>
+                                    <option value="720p" selected>720p (HD)</option>
+                                    <option value="1080p">1080p (Full HD)</option>
+                                    <option value="2k">2K (QHD)</option>
+                                </select>
+                            </div>
+
+                            <!-- Audio Info -->
+                            <div class="mb-3" id="audioInfo" style="display: none;">
+                                <div class="alert alert-secondary">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    MP3 audio will be extracted at 192kbps quality
+                                </div>
+                            </div>
+
+                            <!-- Download Button -->
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-success btn-lg" id="downloadBtn">
+                                    <i class="fas fa-download me-2"></i>Download
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Loading -->
+                        <div id="loading" class="text-center" style="display: none;">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="mt-2">Fetching video information...</p>
+                        </div>
+
+                        <!-- Error -->
+                        <div id="errorMsg" class="alert alert-danger mt-3" style="display: none;"></div>
+                    </div>
+                </div>
+
+                <!-- Supported Platforms -->
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><i class="fas fa-globe me-2"></i>Supported Platforms</h5>
+                        <div class="row text-center mt-3">
+                            <div class="col">
+                                <i class="fab fa-youtube fa-2x text-danger"></i>
+                                <p class="mt-1 mb-0">YouTube</p>
+                            </div>
+                            <div class="col">
+                                <i class="fab fa-instagram fa-2x text-danger"></i>
+                                <p class="mt-1 mb-0">Instagram</p>
+                            </div>
+                            <div class="col">
+                                <i class="fab fa-facebook fa-2x text-primary"></i>
+                                <p class="mt-1 mb-0">Facebook</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
